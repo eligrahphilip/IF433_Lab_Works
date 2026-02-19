@@ -26,7 +26,6 @@ class Employee(val name: String) {
         println("Karyawan: $name, Rating: $performanceRating")
     }
     
-    // Computed Property: Bonus berdasarkan rating
     val bonus: Int
         get() {
             return when {
