@@ -23,4 +23,16 @@ fun main() {
     println("Damage setelah set 9999: ${weapon.damage}")
     
     println("Tier: ${weapon.tier}")
+    
+    println("\n=== TEST PLAYER ===")
+    val player = Player("Eligrah")
+    
+    println("Player: ${player.username}")
+    println("Level awal: ${player.level}")
+    
+    player.addXp(50)
+    println("Level setelah +50 XP: ${player.level}")
+    
+    player.addXp(60)
+    println("Level setelah +60 XP: ${player.level}")
 }
