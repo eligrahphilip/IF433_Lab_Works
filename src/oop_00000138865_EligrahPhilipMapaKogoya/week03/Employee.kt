@@ -11,7 +11,6 @@ class Employee(val name: String) {
             }
         }
     
-    // Hanya bisa diakses di file/class ini saja
     private var performanceRating: Int = 3
     
     fun increasePerformance() {
@@ -23,9 +22,17 @@ class Employee(val name: String) {
         }
     }
     
-    // Kita tidak buat getter untuk performanceRating, jadi data ini benar-benar rahasia
-    // Kecuali kita buat function khusus untuk print.
     fun printStatus() {
         println("Karyawan: $name, Rating: $performanceRating")
     }
+    
+    // Computed Property: Bonus berdasarkan rating
+    val bonus: Int
+        get() {
+            return when {
+                performanceRating >= 4 -> salary * 20 / 100
+                performanceRating >= 3 -> salary * 10 / 100
+                else -> 0
+            }
+        }
 }
