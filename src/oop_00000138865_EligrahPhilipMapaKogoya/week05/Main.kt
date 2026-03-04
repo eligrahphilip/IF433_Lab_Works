@@ -37,4 +37,16 @@ fun main() {
     
     val luasLingkaran = math.hitungLuas(7.0)
     println("Luas lingkaran (jari-jari 7.0): $luasLingkaran")
+    
+    println("\n=== SISTEM PEMBAYARAN (Polymorphism) ===")
+    val wallet = EWallet(accountName = "GoPay - Eligrah", balance = 50000.0)
+    val creditCard = CreditCard(accountName = "BCA Visa", limit = 100000.0)
+    
+    // Polymorphic Collection
+    val paymentMethods: List<PaymentMethod> = listOf(wallet, creditCard)
+    
+    for (method in paymentMethods) {
+        println("\n--- Mencoba pembayaran Rp 75000.0 ---")
+        method.processPayment(75000.0)
+    }
 }
