@@ -48,5 +48,15 @@ fun main() {
     for (method in paymentMethods) {
         println("\n--- Mencoba pembayaran Rp 75000.0 ---")
         method.processPayment(75000.0)
+        
+        // Smart Casting Challenge: Jika metode pembayaran adalah EWallet, coba top-up dan bayar lagi
+        when (method) {
+            is EWallet -> {
+                println("\n🔍 Terdeteksi sebagai EWallet! Melakukan top-up otomatis...")
+                method.topUp(50000.0)
+                println("--- Mencoba pembayaran Rp 75000.0 lagi setelah top-up ---")
+                method.processPayment(75000.0)
+            }
+        }
     }
 }
