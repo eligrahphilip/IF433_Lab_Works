@@ -48,4 +48,8 @@ fun main() {
     )
     saveTrades(trades, "crypto_trades.csv")
     println("Trade records saved.")
+
+    // Inject malformed data untuk test robustness
+    File("crypto_trades.csv").appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
+    println("Malformed line injected.")
 }
