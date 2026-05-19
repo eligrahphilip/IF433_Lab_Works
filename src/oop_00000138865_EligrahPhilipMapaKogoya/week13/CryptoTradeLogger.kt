@@ -56,4 +56,8 @@ fun main() {
     // Aggregation: load dan hitung total PnL
     val loadedData = loadTrades("crypto_trades.csv")
     val totalPnl = loadedData.sumOf { it.pnl }
+
+    // Final: cetak semua entri valid dan total PnL
+    loadedData.forEach { println(it) }
+    println("==== TOTAL PnL BERSIH: $totalPnl ====")
 }
