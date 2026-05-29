@@ -56,3 +56,16 @@ class SafeOrderProcessor(val repo: OrderRepository, val notifier: NotificationSe
         notifier.sendNotification(itemName)
     }
 }
+
+// Fix OCP: ganti when block dengan PricingStrategy interface
+interface PricingStrategy {
+    fun calculate(price: Double): Double
+}
+
+class RegularPricing : PricingStrategy {
+    override fun calculate(price: Double) = price
+}
+
+class VipPricing : PricingStrategy {
+    override fun calculate(price: Double) = price * 0.90
+}
